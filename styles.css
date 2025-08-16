@@ -1,0 +1,1716 @@
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+    scroll-behavior: smooth;
+    }
+
+
+    section {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    section.reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(to right, #000010, #0b0f1f);
+      color: #f0f0f0;
+      overflow-x: hidden;
+      padding-top: 80px;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+      box-shadow: 0 2px 10px #0ff3;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      color: #0ff;
+      font-weight: 700;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+      color: #0ff;
+    }
+
+    header {
+      height: 100vh;
+      background: url('background.jpg') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    header h1 {
+      font-size: 5rem;
+      color: #fff;
+      text-shadow: 0 0 10px #0ff;
+    }
+
+    header p {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      color: #ccc;
+    }
+
+    header button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background: #0ff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    header button:hover {
+      cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+      background: #00cfff;
+      box-shadow: 0 0 15px #0ff;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      margin-bottom: 60px;
+      color: rgb(255, 255, 255);
+      text-shadow: 0 0 10px #ea0000;
+     
+    }
+
+    .scroll-container {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    .job-cards {
+      display: flex;
+      gap: 30px;
+      animation: scroll-left 60s linear infinite;
+      width: max-content;
+      
+    }
+
+    #crdS {
+    text-shadow: 0 0 10px #ff0000;
+    }
+
+    #crdAs{
+    text-shadow: 0 0 10px #6200ea;
+    }
+
+    #crdAr{
+    text-shadow: 0 0 10px #2bd600e7;
+    }
+
+    #crdMe{
+    text-shadow: 0 0 10px #00ffdd;
+    }
+
+    #crdAc{
+    text-shadow: 0 0 10px #e4f500;
+    }
+
+    #crdM{
+    text-shadow: 0 0 10px #002bea;
+    }
+
+
+    .job-card.swordsman {
+      text-shadow: 0 0 10px #ff0000;
+    }
+
+    .job-card.thief {
+      text-shadow: 0 0 10px #6200ea;
+    }
+
+    .job-card.archer {
+      text-shadow: 0 0 10px #2bd600e7;
+    }
+
+    .job-card.merchant {
+      text-shadow: 0 0 10px #00ffdd;
+    }
+
+    .job-card.acolyte {
+      text-shadow: 0 0 10px #e4f500;
+    }
+
+    .job-card.mage {
+      text-shadow: 0 0 10px #002bea;
+    }
+    
+
+    .card {
+      width: 300px;
+      height: 500px;
+      background: rgba(255, 255, 255, 0.1);       /* Transparent white */
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);  /* Soft border */
+        backdrop-filter: blur(10px);                /* Frosted glass effect */
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        padding: 20px;
+        margin: 10px;
+        transition: transform 0.3s ease, background 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+        color: #fff;                                /* Light text color for dark bg */
+    }
+
+    .card:hover {
+      cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+        transform: scale(1.05);
+        background: rgba(255, 255, 255, 0.2);        /* Slightly brighter on hover */
+    }
+
+    .card img {
+      width: 200%;
+      height: auto;
+      max-height: 900px;
+        object-fit:cover ;
+    }
+
+    .card h3 {
+      margin: 10px 0 5px;
+        font-size: 1.2rem;
+        text-align: center;
+      color: #fff;
+    }
+
+    .card .description {
+       font-size: 0.9rem;
+        padding: 8px 12px;
+        color: white;
+        background: rgba(0, 0, 0, 0.5); /* semi-transparent bg for readability */
+        border-radius: 10px;
+        margin-bottom: 8px;
+        max-height: 60px;
+        
+        
+        white-space: normal; /* allows wrapping */
+        line-height: 1.2;
+    }
+
+    .card:hover .description {
+      cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+      display: block;
+    }
+
+    @keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+    }
+
+    .job-cards {
+    display: flex;
+    gap: 30px;
+    animation: scroll-left 60s linear infinite;
+    width: max-content;
+    }
+
+    .scroll-container {
+    overflow: hidden;
+    white-space: nowrap;
+    }
+
+
+    footer {
+      padding: 30px 20px;
+      text-align: center;
+      background: #000;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .audio-toggle {
+      margin: 20px auto 0;
+      display: block;
+      background: #0ff;
+      color: #000;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    /* Job Path Overlay Panel */
+    .job-path-panel {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #4d4c4c;
+      color: #000000;
+      font:bolder;
+      font-size: 1.5rem;
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 1000px;
+      box-shadow: 0 0 30px #0ff7;
+      z-index: 1000;
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .job-path-panel img {
+      width: 100px;
+      border-radius: 10px;
+      margin-right: 20px;
+    }
+    .job-branch {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .job-row {
+      display: flex;
+      align-items: center;
+    }
+    .job-path-close {
+      background: #f00;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 8px 15px;
+      align-self: flex-end;
+      cursor: pointer;
+    }
+
+    #jobPathPanel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw; /* Wider screen coverage */
+  height: 85vh; /* Taller to show full backgrounds */
+  background-color: rgba(0, 0, 0, 0);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 9999;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  overflow: hidden;
+  animation: fadeInScale 0.5s ease;
+}
+
+/* Optional entrance animation */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Ensures internal content fits and divides nicely */
+/* #jobPathContent {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-evenly;
+  align-items: stretch;
+  gap: 1rem;
+} */
+
+    nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background: #111;
+  color: white;
+  position: relative;
+    }
+
+    nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  position: relative;
+    }
+
+    nav ul li {
+  position: relative;
+    }
+
+    nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
+    }
+
+    nav a:hover {
+      cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+  color: #ff4081;
+    }
+
+    .media-panel {
+    display: none;
+    position: absolute;
+    background: #1a1a1a;
+    padding: 1rem;
+    min-width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+    z-index: 100;
+    }
+
+    .media-panel.show {
+    display: block;
+    }
+
+    .media-panel a {
+    display: block;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    font-size: 1rem;
+    }
+
+    .media-panel a:hover {
+      cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+    color: #ffcc00;
+    }
+
+    nav {
+  position: fixed;        /* Keep it on top */
+  top: 0;                 /* Stick to the top edge */
+  height: 70px;
+  width: 100%;            /* Full width */
+  z-index: 999;           /* Always on top of other content */
+  background-color: #111; /* Ensure background is not transparent */
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: nice shadow effect */
+    }
+
+    .site-logo {
+  width: 500px;         /* Adjust size as needed */
+  max-width: 80%;
+  display: block;
+  margin: 0 auto 20px auto; /* Center the logo */
+    }
+
+    /* HEADER FULLSCREEN */
+    #header {
+    background: url('images/Celestial.webp') no-repeat center center/cover;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    animation: bgZoom 10s ease-in-out infinite alternate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    /* BACKGROUND ZOOM ANIMATION */
+    @keyframes bgZoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+    }
+
+    /* CONTENT */
+    .header-content {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column; /* stack vertically */
+    align-items: flex-start; /* align to the left */
+    gap: 1rem;
+    animation: fadeSlideIn 1.5s ease forwards;
+    }
+
+    /* LOGOS */
+    .site-logo {
+    display: flex;
+    width: 350px;
+    animation: glowPulse 4s ease-in-out infinite;
+    }
+
+    .site-logo1 {
+    margin-left: 11rem;
+    display: flex;
+    width: 350px;
+    animation: glowPulse 6s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 5px #1a0036);
+    }
+    50% {
+        filter: drop-shadow(0 0 20px #2a00c2);
+    }
+    }
+
+    /* INTRO TEXT */
+    .intro-text p {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    line-height: 1.5;
+    color: rgb(255, 255, 255);
+    animation: fadeBreath 3s ease-in-out infinite;
+    text-shadow: 0 0 10px #6200ea;
+    }
+
+    @keyframes fadeBreath { 
+    0%, 100% {
+        opacity: 0.9;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    }
+
+    /* BUTTONS */
+    .header-buttons button {
+    background: #FF9A4B;
+    border: none;
+    padding: 12px 24px;
+    margin: 10px;
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px #a34fff;
+    animation: slideUpFade 1.6s ease-out forwards;
+    }
+
+    .header-buttons button:hover {
+      cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #fff, 0 0 50px #a34fff;
+    }
+
+    @keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
+
+    @keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
+
+    .header-buttons button:hover {
+      cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+    color: white;
+    background: #6200ea;
+    }
+
+    header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 1;
+    }
+    
+    header * {
+  position: relative;
+  z-index: 2;
+    }
+
+
+    #classes {
+  background-image: url("images/FemaleAdventurer4.webp"); /* Replace with your actual path */
+  background-size: cover;         /* Makes image cover the entire section */
+  background-position: center;    /* Centers the image */
+  background-repeat: no-repeat;   /* Prevents tiling */
+  min-height: 100vh;              /* Makes sure the section fills the entire viewport */
+  width: 100%;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+    
+
+    #classes {
+  position: relative;
+  background-image: url("images/FemaleAdventurer4.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 60px 20px;
+    }
+
+    #classes::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.185); /* dark overlay */
+  z-index: 0;
+    }
+
+    #classes * {
+  position: relative;
+  z-index: 1;
+    }
+
+    #Latest {
+  position: relative;
+  height: 100vh;
+  background-image: url("images/DeeDoesAI.webp");
+  background-size: cover;         /* Ensures image fills the section */
+  background-repeat: no-repeat;   /* Prevents tiling */
+  background-position: center;    /* Keeps image centered */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+    }
+    #Latest::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.226); /* Adjust darkness */
+  z-index: 0;
+    }
+
+    #Latest > * {
+  position: relative;
+  z-index: 1;
+    }
+
+    #Latest .section-title {
+  position: absolute;
+  top: 100px;
+  text-align: center;
+  font-size: 3rem;
+    }
+
+    .latest-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  width: 100%;
+  text-align: center;
+    }
+
+    .latest-content p {
+  font-size: 1.8rem;
+  max-width: 600px;
+  margin: auto;
+    }
+
+    .bottom-center {
+  position: absolute;
+  bottom: 100px;
+  text-align: center;
+    }
+
+    .bottom-center img {
+  margin-top: 10px;
+  width: 100px;
+  height: auto;
+    }
+
+
+    .newsletter {
+      background: linear-gradient(145deg, rgba(0, 0, 0, 0.6), rgba(0, 50, 70, 0.6));
+      padding: 2rem;
+      border-radius: 16px;
+      max-width: 500px;
+      margin: 2rem auto;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+      font-family: 'Orbitron', sans-serif;
+      backdrop-filter: blur(6px);
+    }
+
+    .newsletter h3 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #00f2ff;
+      text-shadow: 0 0 5px #00f2ff;
+    }
+
+    .newsletter p {
+      margin: 0.5rem 0 1rem;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .email-input-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: none;
+      width: 60%;
+      font-size: 1rem;
+      outline: none;
+      box-shadow: inset 0 0 5px rgba(0, 255, 255, 0.3);
+    }
+
+    .newsletter button {
+      padding: 0.75rem 1.2rem;
+      background: #00f2ff;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter button:hover {
+      cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+      background: #00cfd8;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #0ff;
+    }
+
+    .confirmation-message {
+      margin-top: 1rem;
+      display: none;
+      color: #00ff99;
+      font-weight: bold;
+      font-size: 1.1rem;
+      animation: fadeIn 0.5s ease forwards;
+      opacity: 0;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fake-email-preview {
+      margin-top: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      border-radius: 12px;
+      text-align: left;
+      font-size: 0.95rem;
+      color: #eee;
+      box-shadow: inset 0 0 8px rgba(0, 255, 255, 0.1);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    .fake-email-preview h4 {
+      margin-bottom: 0.5rem;
+      color: #00f2ff;
+      text-shadow: 0 0 4px #0ff;
+    }
+
+    .fake-email-preview ul {
+      padding-left: 1.2rem;
+    }
+
+    .fake-email-preview ul li {
+      margin-bottom: 0.3rem;
+    }
+
+    .fake-email-preview {
+      margin-top: 1.5rem;
+      background: rgba(0, 30, 50, 0.6);
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .fake-email-preview h4 {
+      color: #00f2ff;
+      margin-bottom: 0.5rem;
+    }
+
+    .fake-email-preview p,
+    .fake-email-preview li {
+      color: #eee;
+      text-align: left;
+    }
+
+    .fade-out {
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .typing::after {
+      content: "|";
+      animation: blink 1s infinite;
+      color: #0ff;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    
+
+    .email-preview-show {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .email-preview-show.showing {
+      opacity: 1;
+    }
+
+    #confirmationMsg.error {
+      color: red;
+    }
+    #confirmationMsg {
+      transition: opacity 0.4s ease;
+    }
+
+
+
+    #events {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* full screen height */
+    overflow: hidden;
+    }
+
+    .event-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    }
+
+
+    .event-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: scale(1.05);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .event-slide.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 1;
+    }
+
+    .event-content {
+    margin-top: 20rem;
+    text-align: center;
+    color: #fff;
+    padding: 2rem;
+    backdrop-filter: blur(4px);
+    animation: slideInFade 1s ease-in-out forwards;
+    }
+
+    .event-content h2 {
+    font-size: 3rem;
+    color: black;
+    text-shadow: 0 0 20px white;
+    animation: glowText 2s ease-in-out infinite alternate;
+    }
+
+    .event-content p {
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: fadeInText 1s ease 0.5s forwards;
+    }
+
+    /* Text animations */
+    @keyframes slideInFade {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
+
+    @keyframes fadeInText {
+    to {
+        opacity: 1;
+    }
+    }
+
+    @keyframes glowText {
+    from {
+        text-shadow: 0 0 5px gold;
+    }
+    to {
+        text-shadow: 0 0 25px gold, 0 0 50px orange;
+    }
+    }
+
+    /* Dots Navigation */
+    #sliderDots {
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    }
+
+    .slider-dot:hover{
+      cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+    }
+
+    .slider-dot {
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+    border-radius: 50%;
+    border: 2px solid gold;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    }
+
+    .slider-dot.active {
+    background: gold;
+    }
+    
+    
+
+    nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    text-shadow: 0 0 10px #6200ea;
+    }
+
+    .follow-toggle {
+  position: relative;
+}
+
+.social-icons {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  display: flex;
+  gap: 0.8rem;
+  z-index: 1000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  transform: translateY(10px);
+}
+
+.social-icons.hidden {
+  display: none;
+  opacity: 0;
+  transform: translateY(0);
+}
+
+.social-icons img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(1.2);
+  transition: transform 0.2s ease;
+}
+
+.social-icons img:hover {
+  cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+  transform: scale(1.2);
+}
+
+    .hidden {
+    display: none;
+    }
+
+
+    .logo-link {
+    display: flex;
+    align-items: center;
+    }
+
+    .logo-img {
+    width: 80px;
+    height: 100%;
+    margin-left: 40px;
+    transform: scale(1.2); 
+    transition: opacity 0.5s ease;
+    cursor: pointer;
+    }
+
+    .game-review-section {
+    height: 50vh;
+    background-image: url("images/GlitchMinotaur.webp"); /* replace with your actual path */
+    background-size: cover;        /* Makes the image cover the whole section */
+    background-position: center;   /* Centers the image */
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 80px 20px;
+    z-index: 1;
+    overflow: hidden;
+    }
+
+    .game-review-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* This dims the bg */
+    z-index: -1;
+    }
+
+    #game-review .section-title {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 6px #000;
+    }
+
+    .review-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap;
+    }
+
+    .review-card {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px 25px;
+    border-radius: 20px;
+    width: 300px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    transition: all 0.4s ease;
+    transform-origin: center;
+    color: white;
+    }
+
+    .review-card p {
+    transition: transform 0.4s ease, color 0.4s ease;
+    }
+
+    .review-card .reviewer-name {
+    display: block;
+    margin-top: 10px;
+    color: #00ffff; /* Cyan for example */
+    font-weight: bold;
+    transition: transform 0.4s ease, color 0.4s ease;
+    }
+
+    .review-card:hover {
+      cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+    transform: scale(1.12);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.75);
+    }
+
+    .review-card:hover p {
+      cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+    transform: scale(1.10);
+    color: #ffd700; /* Gold glow for review text */
+    }
+
+    .review-card:hover .reviewer-name {
+      cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+    transform: scale(1.10);
+    color: #00ffff; /* Still cyan or whatever you pick */
+    }
+
+    .review-card:nth-child(1) { animation-delay: 0.2s; }
+    .review-card:nth-child(2) { animation-delay: 0.4s; }
+    .review-card:nth-child(3) { animation-delay: 0.6s; }
+
+    @keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
+
+
+    #triangleIcon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    }
+
+    .bgm-toggle a {
+    font-size: 1.1rem;
+    color: white;
+    text-decoration: none;
+    }
+
+
+    .media-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 15, 15, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .media-modal-content {
+    background: #000000;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 800px;
+    width: 90%;
+    color: #fff;
+    position: relative;
+    text-align: center;
+  }
+
+  .media-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #ff4444;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .media-close-btn:hover {
+    cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+    background: #cc0000;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .wallpaper-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .modal-img {
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .modal-img:hover {
+    cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+    transform: scale(0.8);
+  }
+
+  .fullscreen-image {
+    text-align: center;
+  }
+
+  .fullscreen-image img {
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px #000000aa;
+  }
+
+  .back-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+      .fanart-grid {
+  column-count: 4; /* Adjust based on screen size */
+  column-gap: 0.5rem;
+  max-height: 600px;
+  overflow-y:auto;
+  padding: 1rem;
+}
+
+.modal-img {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  border-radius: 10px;
+  break-inside: avoid;
+  transition: transform 0.2s ease;
+}
+
+.modal-img:hover {
+  cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+  transform: scale(0.8);
+  z-index: 1;
+  cursor: pointer;
+}
+
+
+    @media (max-width: 1024px) {
+      .fanart-grid {
+        column-count: 3;
+      }
+    }
+    @media (max-width: 768px) {
+      .fanart-grid {
+        column-count: 2;
+      }
+    }
+    @media (max-width: 480px) {
+      .fanart-grid {
+        column-count: 1;
+      }
+    }
+
+    .fullscreen-image img {
+      max-width: 90%;
+      max-height: 80vh; /* Keeps it from going beyond screen height */
+      width: auto;
+      height: auto;
+      border-radius: 10px;
+      object-fit: contain;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    }
+    .nav-buttons {
+      margin-top: 10px;
+    }
+    .nav-btn, .back-btn {
+      margin: 5px;
+      padding: 0.5rem 1rem;
+      border: none;
+      background: #444;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .nav-btn:hover, .back-btn:hover {
+      cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+      background: #666;
+    }
+
+  .music-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .music-track p {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .nav-buttons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .nav-btn {
+    background: #444;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .nav-btn:hover {
+    cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+    background: #666;
+  }
+
+    .login-panel {
+  position: fixed;
+  top: 50%;
+  right: 100px; /* Not too close to edge */
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #7f00ff;
+  color: #fff;
+  width: 260px;
+  text-align: center;
+  z-index: 999;
+  backdrop-filter: blur(5px);
+}
+  .login-panel input {
+    display: block;
+    margin: 0.5rem auto;
+    width: 90%;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: none;
+  }
+  .login-panel button {
+    margin-top: 0.5rem;
+    background-color: #7f00ff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+
+  #playerDashboard ul {
+  list-style: none;
+  padding: 0;
+  }
+  #playerDashboard li {
+    margin: 0.5rem 0;
+  }
+  #playerDashboard a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  #playerDashboard a:hover {
+    cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+    color: #fff;
+  }
+
+  .login-register-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 0.8rem;
+  }
+
+  .login-register-buttons button {
+    padding: 0.5rem 1.2rem;
+    border-radius: 999px;
+    border: none;
+    background-color: #6200ea;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+
+  .login-register-buttons button:hover {
+    cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+    background-color: #3700b3;
+  }
+
+      .music-panel-grid {
+        display: flex;
+        gap: 2rem;
+        padding: 2rem;
+        flex-wrap: wrap;
+        margin: auto;
+      }
+
+      .carousel-vertical {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-height: 400px;
+        overflow-y: auto;
+        
+      }
+
+      .carousel-vertical::-webkit-scrollbar {
+        display: none;
+      }
+      .carousel-vertical {
+        scrollbar-width: none;
+      }
+
+      .carousel-item {
+        background: #111;
+        padding: 0.75rem;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.3s;
+      }
+
+      .carousel-item:hover {
+        cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+        transform: scale(0.8);
+        background-color: #222;
+      }
+
+      .carousel-item.playing {
+        background: #0ff;
+        color: black;
+        font-weight: bold;
+        box-shadow: 0 0 15px #0ff;
+        animation: pulseGlow 1.5s infinite;
+      }
+
+      .carousel-item.playing::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        background: #0ff;
+        border-radius: 12px;
+        filter: blur(15px);
+        opacity: 0.3;
+        z-index: -1;
+      }
+
+      @keyframes pulseGlow {
+        0% {
+          box-shadow: 0 0 10px rgb(0, 255, 242);
+        }
+        50% {
+          box-shadow: 0 0 20px rgb(0, 81, 255);
+        }
+        100% {
+          box-shadow: 0 0 10px rgb(0, 255, 242);
+        }
+      }
+
+      
+        .music-modal-container {
+          display: flex;
+          flex-direction: row; /* Make it horizontal */
+          gap: 2rem;
+          width: 100%;
+          max-width: 1000px;
+          margin: auto;
+          align-items: flex-start;
+        }
+
+        .music-left-panel {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          overflow-y: auto;
+          max-height: 400px;
+          border-right: 2px solid #444;
+          padding-right: 1rem;
+        }
+
+        .carousel-vertical {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          width: 300px;
+        }
+
+        .carousel-vertical button {
+          background: #111;
+          color: white;
+          border: none;
+          padding: 0.6rem 1.2rem;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          text-align: left;
+        }
+
+        .carousel-vertical button:hover {
+          cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+          background: #222;
+          transform: scale(1.05);
+        }
+
+        .carousel-item.playing button {
+          background: #00ffff;
+          color: #000;
+          box-shadow: 0 0 12px #00ffff;
+          font-weight: bold;
+        }
+
+        .music-right-panel {
+          flex: 2;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 1.5rem;
+        }
+
+        .album-art {
+          width: 220px;
+          height: 220px;
+          border-radius: 14px;
+          object-fit: cover;
+          box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        #nowPlaying {
+          margin-top: 1rem;
+          font-size: 1.2rem;
+          text-shadow: 0 0 8px rgb(255, 0, 0);
+        }
+
+        .bgm-controls {
+          display: flex;
+          gap: 0.5rem;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .bgm-controls button {
+          padding: 10px 14px;
+          font-size: 1.2rem;
+          border: none;
+          border-radius: 8px;
+          background: #222;
+          color: white;
+          cursor: pointer;
+          transition: background 0.3s;
+          text-shadow: 0 0 8px rgb(255, 0, 0);
+        }
+
+        .bgm-controls button:hover {
+          cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+          background: #00f0ff;
+          color: #000;
+        }
+
+
+        #modalContentArea {
+          max-width: 800px;
+          margin: auto;
+        }
+
+        * {
+        cursor: url(https://cur.cursors-4u.net/games/gam-13/gam1229.ani), 
+                url(https://cur.cursors-4u.net/games/gam-13/gam1229.png), 
+                auto !important;
+      }
+
+      #jobPathContent {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0); /* Optional background to contrast job cards */
+  backdrop-filter: blur(1px);     /* Optional blur effect */
+  /* border-top: 2px solid rgba(255, 255, 255, 0.2); */
+  border-radius: 20px 20px 0 0;
+  z-index: 2;
+}
+
+
+
+.job-branch-column {
+  flex: 1;
+  max-height: 220px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+  box-shadow: inset 0 0 50px rgba(0,0,0,0);
+  animation: fadeInSlideUp 0.6s ease forwards;
+}
+
+
+
+
+.job-card {
+  background: rgba(0, 0, 0, 0);
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: bolder;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  text-align: center;
+  /* box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); */
+}
+
+.job-card:hover {
+  background: rgba(0, 0, 0, 0.288);
+  transform: scale(2);
+  /* box-shadow: 0 0 10px cyan; */
+}
+
+.back-btn {
+  padding: 8px 12px;
+  background: rgba(0,0,0,0);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+#jobPathPanel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0); /* Optional dark overlay */
+  z-index: 1;
+  border-radius: 20px;
+}
+
+
+.job-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 0 0 12px 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.exit-hint {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 1rem;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease, box-shadow 0.5s ease;
+  box-shadow: 0 0 0px rgba(0, 255, 255, 0);
+}
+
+.exit-hint.show {
+  opacity: 1;
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.6);
+}
+

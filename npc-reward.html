@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Claim Your NPC Voice Reward</title>
+  <style>
+    body {
+      background: #000;
+      color: #0ff;
+      font-family: 'Orbitron', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    /* Glowing Button */
+    .claim-btn {
+      background: linear-gradient(45deg, #ffcc00, #ff9900);
+      border: none;
+      color: #fff;
+      font-size: 1.4rem;
+      padding: 15px 40px;
+      border-radius: 12px;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 0 0 15px #ff9900, 0 0 30px #ffcc00, 0 0 45px #ffaa00;
+      animation: glow 1.5s infinite alternate;
+      margin-top: 1rem;
+    }
+
+    .claim-btn:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 10px #ff9900, 0 0 20px #ffcc00, 0 0 30px #ffaa00;
+      }
+      to {
+        box-shadow: 0 0 20px #ffaa00, 0 0 40px #ffcc00, 0 0 60px #ff9900;
+      }
+    }
+
+    #rewardLabel {
+      font-size: 1.2rem;
+      color: #ff0;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h2>🎁 Claim Your Secret NPC Voice Message!</h2>
+  <p>Press the glowing button to reveal your reward.</p>
+  <button class="claim-btn" onclick="playAndDownload()">Claim Reward</button>
+  <p id="rewardLabel"></p>
+
+  <script>
+    const messages = [
+      { file: "npc-message/farewell1.mp3", type: "Final Bows" },
+      { file: "npc-message/farewell2.mp3", type: "Until Next Time" },
+      { file: "npc-message/farewell3.mp3", type: "Parting Words" },
+      { file: "npc-message/flirt1.mp3", type: "Blush Triggers" },
+      { file: "npc-message/flirt2.mp3", type: "Heartstrings" },
+      { file: "npc-message/flirt3.mp3", type: "Sweet Nothings" },
+      { file: "npc-message/greeting1.mp3", type: "Warm Welcomes" },
+      { file: "npc-message/greeting2.mp3", type: "First Impressions" },
+      { file: "npc-message/greeting3.mp3", type: "Friendly Hails" },
+      { file: "npc-message/joke1.mp3", type: "Campfire Chuckles" },
+      { file: "npc-message/joke2.mp3", type: "Alehouse Laughs" },
+      { file: "npc-message/joke3.mp3", type: "Tavern Humor" },
+      { file: "npc-message/lore1.mp3", type: "Tales of the Old World" },
+      { file: "npc-message/lore2.mp3", type: "Legends Remembered" },
+      { file: "npc-message/lore3.mp3", type: "Chronicles of the Realm" },
+      { file: "npc-message/mystery1.mp3", type: "Enigmas of the Realm" },
+      { file: "npc-message/mystery2.mp3", type: "Unsolved Whispers" },
+      { file: "npc-message/mystery3.mp3", type: "Veiled Puzzles" },
+      { file: "npc-message/riddle1.mp3", type: "Mind-Benders" },
+      { file: "npc-message/riddle2.mp3", type: "Brain Twisters" },
+      { file: "npc-message/riddle3.mp3", type: "Cryptic Clues" },
+      { file: "npc-message/secret1.mp3", type: "Hushed Rumors" },
+      { file: "npc-message/secret2.mp3", type: "Hidden Truths" },
+      { file: "npc-message/secret3.mp3", type: "Shadows Speak" },
+      { file: "npc-message/tips1.mp3", type: "Adventurer’s Wisdom" },
+      { file: "npc-message/tips2.mp3", type: "Battlefield Insights" },
+      { file: "npc-message/tips3.mp3", type: "Traveler’s Tricks" },
+      { file: "npc-message/warning1.mp3", type: "Ominous Whispers" },
+      { file: "npc-message/warning2.mp3", type: "Danger Calls" },
+      { file: "npc-message/warning3.mp3", type: "Foreboding Signs" }
+    ];
+
+    function playAndDownload() {
+      // Pick a random reward
+      const reward = messages[Math.floor(Math.random() * messages.length)];
+
+      // Show the reward category before sound plays
+      document.getElementById("rewardLabel").textContent = `You unlocked: ${reward.type}`;
+
+      // Play chest opening sound
+      const chestSound = new Audio("sounds/chest_open.mp3"); // Change path if needed
+      chestSound.play();
+
+      // After chest sound finishes, download the reward
+      chestSound.onended = () => {
+        const a = document.createElement("a");
+        a.href = reward.file;
+        a.download = reward.file.split("/").pop();
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      };
+    }
+  </script>
+</body>
+</html>

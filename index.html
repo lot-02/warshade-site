@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warshade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <nav>
+        <a href="#header" class="logo-link">
+            <img id="logo-img" src="images/logo1.png" alt="Warshade Logo" class="logo-img" />
+        </a>
+        <ul>
+                <li><a href="#classes">Classes</a></li>
+                <li><a href="#events">Events</a></li>
+
+                <li class="media-dropdown" style="position: relative;">
+                    <a href="javascript:void(0)" id="mediaToggle">Media <span id="triangleIcon">▾</span></a>
+                    <div class="media-panel" id="mediaPanel">
+                        <a href="#wallpapers">🎨 Wallpapers<br>
+                            <!-- <img src="images/sample-wallpaper.jpg" alt="Sample Wallpaper" style="width:100%; margin-top:5px; border-radius:8px;"> -->
+                        </a>
+
+                    <a href="#music">🎵 Music<br>
+                        <audio id="bgmPlayer" loop>
+                            <source src="audio/sample-track.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </a>
+
+                    <a href="#fanworks">🎭 Fan Art<br>
+                        <!-- <img src="images/sample-fanart.png" alt="Sample Fan Art" style="width:100%; margin-top:5px; border-radius:8px;"> -->
+                    </a>
+                </div>
+                </li>
+                
+
+                
+                 
+                <!-- <li class="bgm-toggle">
+                    <a href="javascript:void(0)" id="bgmToggle">🔊 Music: ON</a>
+                </li> -->
+
+                <li class="follow-toggle">
+                    <a href="javascript:void(0)" id="followBtn">Follow Us</a>
+                    <div class="social-icons hidden" id="socialLinks">
+                        <a href="https://discord.com" target="_blank"><img src="images/discord-logo.png" alt="Discord" /></a>
+                        <a href="https://facebook.com" target="_blank"><img src="images/fb-logo.png" alt="Facebook" /></a>
+                        <a href="https://instagram.com" target="_blank"><img src="images/ig-logo.png" alt="Instagram" /></a>
+                        <a href="https://twitter.com" target="_blank"><img src="images/x-logo.png" alt="X" /></a>
+                    </div>
+                </li>
+
+                <li class="bgm-toggle" style="display: flex; align-items: center; gap: 0.5rem;">
+                  <a href="javascript:void(0)" id="bgmToggleIcon" title="Toggle Mute">🔊</a>
+                  <input 
+                    type="range" 
+                    id="volumeSlider" 
+                    min="0" 
+                    max="1" 
+                    step="0.01" 
+                    value="1" 
+                    title="Volume"
+                    style="width: 100px;"
+                  >
+                </li>
+        </ul>
+    </nav>
+
+
+    <div id="mediaModal" class="media-modal hidden">
+      <div class="media-modal-content">
+        <button id="closeModal" class="media-close-btn">✖</button>
+        <div id="modalContentArea">
+          <!-- Content will be injected here -->
+        </div>
+      </div>
+    </div>
+    
+
+    <header id="header">
+      
+        <!-- LOGIN PANEL -->
+        <div id="loginPanel" class="login-panel">
+          <h3>Player Login</h3>
+          <input type="text" placeholder="Username" id="username">
+          <input type="password" placeholder="Password" id="password">
+          <div class="auth-buttons">
+            <button onclick="login()">Login</button>
+            <button onclick="showRegister()">Register</button>
+          </div>
+        </div>
+
+
+        <!-- REGISTER PANEL -->
+        <div id="registerPanel" class="login-panel" style="display: none;">
+          <h3>Player Registration</h3>
+          <input type="text" placeholder="Username" id="regUsername">
+          <input type="password" placeholder="Password" id="regPassword">
+          <input type="password" placeholder="Confirm Password" id="confirmPassword">
+          <div class="login-register-buttons">
+            <button onclick="register()">Register</button>
+            <button onclick="showLogin()">Back</button>
+          </div>
+        </div>
+
+        <!-- PLAYER DASHBOARD -->
+        <div id="playerDashboard" class="login-panel" style="display: none;">
+            <h3>Welcome, <span id="playerName">Player</span>!</h3>
+
+            <div class="dashboard-section">
+                <h4>🎁 <strong><bold>Daily Reward:</bold></strong> <br> <span id="dailyRewardMsg">Loading...</span></h4>
+                <h4>📜 <strong><bold></bold>Daily Quest:</bold></strong> <br> <span id="dailyQuest">Loading...</span></h4>
+                <button onclick="claimReward()">Claim Reward</button>
+                <button onclick="topUp()">💎 Top-up</button>
+            </div>
+
+            <div id="npcQRCode"></div>
+
+            <!-- <div class="chibi-container">
+                <h4>Your Characters</h4>
+                <img id="chibiImage" src="" alt="Random Chibi" width="100">
+            </div> -->
+
+            <ul>
+                <!-- <li><a href="#">📜 My Class</a></li> -->
+                <!-- <li><a href="#">🎵 Music Settings</a></li> -->
+                <!-- <li><a href="#">🖼️ My Wallpapers</a></li> -->
+                <!-- <li><a href="#">🎮 Pre-register</a></li> -->
+                <li><a href="#" onclick="logout()">🚪 Logout</a></li>
+            </ul>
+        </div>
+
+
+
+        <div class="header-content">
+            <img src="images/logo3.png" alt="Warshade Logo" class="site-logo">
+            <img src="images/logo31.png" alt="Warshade Logo" class="site-logo1">
+            <div class="intro-text">
+                <p>Forge alliances.<br>Battle shadows.<br>Dominate the warzone.</p>
+                <div class="header-buttons">
+                    <button onclick="document.getElementById('Latest').scrollIntoView({behavior: 'smooth'})">Explore Now</button>
+                    <button onclick="alert('Pre-registration coming soon!')">Pre-register</button>
+                </div>  
+            </div>
+        </div>
+    </header>
+
+
+    <section id="Latest">
+      <div class="newsletter">
+        <h3>Stay Updated on Warshade</h3>
+        <p>Enter your email to receive the latest news, events, and updates!</p>
+
+        <div class="email-input-group">
+          <input type="email" id="fakeEmail" placeholder="your@email.com" required />
+          <button onclick="fakeSubscribe()">Subscribe</button>
+          <button id="unsubscribeBtn" onclick="unsubscribe()" style="display: none;">Unsubscribe</button>
+        </div>
+
+        <p id="confirmationMsg" class="confirmation-message" style="display: none;"></p>
+
+        <div id="emailPreview" class="fake-email-preview" style="display: none;">
+          <h4>📧 Warshade Central</h4>
+          <p><strong>Subject:</strong> <span id="emailSubject"></span></p>
+          <p><strong>To:</strong> <span id="dynamicEmail"></span></p>
+          <div id="emailBody" class="email-body typing"></div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section id="events">
+        <div class="event-slider">
+            <div class="event-slide active" style="background-image: url('images/Viniciusm.webp');">
+                <div class="event-content">
+                    <h2>Celestial Hunt</h2>
+                    <p>Embark on a limited-time cosmic quest to hunt down celestial beasts and earn rare constellation-themed gear!</p>
+                </div>
+            </div>
+            <div class="event-slide" style="background-image: url('images/ExplosionFighting.webp');">
+                <div class="event-content">
+                    <h2>Shadow Arena Tournament</h2>
+                    <p>Compete in the ultimate PvP showdown to claim rare rewards and honor!</p>
+                </div>
+            </div>
+            <div class="event-slide" style="background-image: url('images/MachinedSeraphim.webp');">
+                <div class="event-content">
+                    <h2>Guild Wars Season</h2>
+                    <p>Rally your allies and dominate the battlefield in the epic guild war season.</p>
+                </div>
+            </div>
+            <div class="event-slide" style="background-image: url('images/Azarathag.webp');">
+                <div class="event-content">
+                    <h2>Nightmare Invasion</h2>
+                    <p>Defend the realm from waves of nightmare creatures in this thrilling co-op event!</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="slider-dots" id="sliderDots"></div>
+
+        
+    </section>
+
+
+
+
+  <section id="classes">
+    <h1 class="section-title">CHOOSE YOUR CLASS</h1>
+    
+    <div class="scroll-container">
+      <div class="job-cards">
+        <div id="crdS" class="card" onclick="openJobPath('swordsman')">
+          <div class="description">Bold melee fighter skilled with swords and shields.</div>
+          <img src="images/swordsman-path/swordsman.png" alt="Swordsman">
+          <h3>Swordsman</h3>
+        </div>
+        <div id="crdM" class="card" onclick="openJobPath('mage')">
+          <div class="description">Master of elements and destructive spells.</div>
+          <img src="images/mage-path/mage.png" alt="mage">
+          <h3>Mage</h3>
+        </div>
+        <div id="crdAc" class="card" onclick="openJobPath('acolyte')">
+          <div class="description">Supportive healer who protects allies.</div>
+          <img src="images/acolyte-path/acolyte.png" alt="acolyte">
+          <h3>Acolyte</h3>
+        </div>
+        <div id="crdMe" class="card" onclick="openJobPath('merchant')">
+          <div class="description">Clever trader who turns zeny into power and profit.</div>
+          <img src="images/merchant-path/merchant.png" alt="merchant">
+          <h3>Merchant</h3>
+        </div>
+        <div id="crdAr"  class="card" onclick="openJobPath('archer')">
+          <div class="description">Long-range attacker with deadly precision and traps.</div>
+          <img src="images/archer-path/archer.png" alt="archer">
+          <h3>Archer</h3>
+        </div>
+        <div id="crdAs" class="card" onclick="openJobPath('thief')">
+          <div class="description">Swift assassin skilled in stealth and critical strikes.</div>
+          <img src="images/thief-path/thief.png" alt="thief">
+          <h3>Thief</h3>
+        </div>
+        <!-- Other base classes go here -->
+        <div id="crdS" class="card" onclick="openJobPath('swordsman')">
+          <div class="description">Bold melee fighter skilled with swords and shields.</div>
+          <img src="images/swordsman-path/swordsman.png" alt="Swordsman">
+          <h3>Swordsman</h3>
+        </div>
+        <div id="crdM" class="card" onclick="openJobPath('mage')">
+          <div class="description">Master of elements and destructive spells.</div>
+          <img src="images/mage-path/mage.png" alt="mage">
+          <h3>Mage</h3>
+        </div>
+        <div id="crdAc" class="card" onclick="openJobPath('acolyte')">
+          <div class="description">Supportive healer who protects allies.</div>
+          <img src="images/acolyte-path/acolyte.png" alt="acolyte">
+          <h3>Acolyte</h3>
+        </div>
+        <div id="crdMe" class="card" onclick="openJobPath('merchant')">
+          <div class="description">Clever trader who turns zeny into power and profit.</div>
+          <img src="images/merchant-path/merchant.png" alt="merchant">
+          <h3>Merchant</h3>
+        </div>
+        <div id="crdAr" class="card" onclick="openJobPath('archer')">
+          <div class="description">Long-range attacker with deadly precision and traps.</div>
+          <img src="images/archer-path/archer.png" alt="archer">
+          <h3>Archer</h3>
+        </div>
+        <div id="crdAs"  class="card" onclick="openJobPath('thief')">
+          <div class="description">Swift assassin skilled in stealth and critical strikes.</div>
+          <img src="images/thief-path/thief.png" alt="thief">
+          <h3>Thief</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="job-path-panel" id="jobPathPanel">
+    <!-- <button class="job-path-close" onclick="closeJobPath()">Close</button> -->
+    <div id="jobPathContent"></div>
+    <div id="jobEnlargedView" style="display:none; margin-top: 20px; text-align:center;">
+        <img id="enlargedImg" src="" alt="" style="max-width:200px; margin-bottom: 10px;">
+        <p id="enlargedDesc" style="font-size: 1.1rem;"></p>
+    </div>
+  </div>
+
+    <section class="game-review-section" id="reviews">
+        <h2 class="section-title">GAME REVIEW</h2>
+        <div class="review-container">
+            <div class="review-card">
+                <p>"Warshade delivers an immersive world that keeps me hooked for hours!"</p>
+                <span class="reviewer-name">— LunaBlade</span>
+            </div>
+            <div class="review-card">
+                <p>"The class system is so well-balanced. Every battle feels rewarding!"</p>
+                <span class="reviewer-name">- LunaStrike</span>
+            </div>
+            <div class="review-card">
+                <p>"I never expected to love this game so much. The community is awesome too!"</p>
+                <span class="reviewer-name">- ShadowEcho</span>
+            </div>
+        </div>
+    </section>
+
+    <div id="exitHint" class="exit-hint">Press Esc to exit</div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://unpkg.com/qr-code-styling/lib/qr-code-styling.js"></script>
+
+
+
+  <footer>
+    &copy; 2025 Warshade. All rights reserved.
+  </footer>
+
+  
+  <script src="script.js"></script>
+</body>
+</html>
